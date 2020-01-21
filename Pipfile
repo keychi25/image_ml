@@ -1,0 +1,28 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+cryptography = "*"
+requests = "*"
+numpy = "==1.16.4"
+opencv-python = "*"
+Flask = "*"
+Flask-RESTful = "*"
+Flask-Bcrypt = "*"
+Flask-Bootstrap = "*"
+Flask-Cors = "*"
+Pillow = "*"
+scipy = "*"
+matplotlib = "*"
+scikit-learn = "*"
+jupyter = "*"
+Keras = "*"
+tflearn = "*"
+tensorflow = "==1.14"
+
+[requires]
+python_version = "3.7"

@@ -1,0 +1,17 @@
+flask
+flask-restful
+cryptography
+flask-bcrypt
+flask-bootstrap
+flask_cors
+requests
+numpy==1.16.4
+opencv-python
+pillow
+scipy
+matplotlib
+scikit-learn
+Keras
+jupyter
+tflearn
+tensorflow==1.14
