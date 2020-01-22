@@ -15,3 +15,5 @@ Keras
 jupyter
 tflearn
 tensorflow==1.14
+h5py 
+pyyaml

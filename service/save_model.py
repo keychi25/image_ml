@@ -1,4 +1,4 @@
-import tensorflow.compat.v1 as tf
+import tensorflow as tf
 import tflearn
 
 from tflearn.layers.core import input_data, dropout, fully_connected

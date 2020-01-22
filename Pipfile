@@ -23,6 +23,8 @@ jupyter = "*"
 Keras = "*"
 tflearn = "*"
 tensorflow = "==1.14"
+h5py = "*"
+PyYAML = "*"
 
 [requires]
 python_version = "3.7"
