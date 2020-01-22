@@ -2,22 +2,67 @@
 {% block content %}
 <div class="row">
   <div class="col-sm-6">
-    <a href="/trains">モデルの作成</a>
+    <a href="/cnn/trains">モデルの作成</a>
   </div>
   <div class="col-sm-6">
-    <form action="/images/upload" method="post" enctype="multipart/form-data">
-      <input type="file" name="image" accept="image/png, image/jpeg">
-      <input type="submit" value="送信" class="btn-primary">
+
+    <form action="/images/upload/None" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>そのまま保存</label>
+      </div>
+      <div class="form-group">
+        <input type="file" name="image" accept="image/png, image/jpeg">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="保存" class="btn-primary">
+      </div>
     </form>
+
+    <form action="/images/upload/edge" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>エッジ検出で保存</label>
+      </div>
+      <div class="form-group">
+        <input type="file" name="image" accept="image/png, image/jpeg">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="保存" class="btn-primary">
+      </div>
+    </form>
+
+    <form action="/images/upload/gray" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>グレースケールで保存</label>
+      </div>
+      <div class="form-group">
+        <input type="file" name="image" accept="image/png, image/jpeg">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="保存" class="btn-primary">
+      </div>
+    </form>
+
+    <form action="/images/upload/inversion" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>グレースケールを反転させて保存</label>
+      </div>
+      <div class="form-group">
+        <input type="file" name="image" accept="image/png, image/jpeg">
+      </div>
+      <div class="form-group">
+        <input type="submit" value="保村" class="btn-primary">
+      </div>
+    </form>
+
     {% if images %}
 
     {% for path in images %}
     <div>
       <img src="images/{{ path }}" style="margin-top: 10px; vertical-align: bottom; width: 200px;">
-      {{ path }}
+      <a href="/cnn/predict/{{ path }}">{{ path }} </a>
     </div>
     {% endfor %}
-
+    
     {% endif %}
 
   </div>
