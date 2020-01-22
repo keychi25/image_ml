@@ -1,18 +1,26 @@
 {% extends "layout.html" %}
 {% block content %}
+<div class="row">
+  <div class="col-sm-6">
+    <a href="/trains">モデルの作成</a>
+  </div>
+  <div class="col-sm-6">
+    <form action="/images/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/png, image/jpeg">
+      <input type="submit" value="送信" class="btn-primary">
+    </form>
+    {% if images %}
 
-<form action="/images/upload" method="post" enctype="multipart/form-data">
-  <input type="file" name="image" accept="image/png, image/jpeg">
-  <button type="submit" class="btn-primary">送信</button>
-</form>
-
-{% if images %}
-  {% for path in images %}
+    {% for path in images %}
     <div>
       <img src="images/{{ path }}" style="margin-top: 10px; vertical-align: bottom; width: 200px;">
       {{ path }}
     </div>
-  {% endfor %}
-{% endif %}
+    {% endfor %}
+
+    {% endif %}
+
+  </div>
+</div>
 
 {% endblock %}
