@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, send_from_directory, Blueprint
+from flask import render_template, request, redirect, url_for, send_from_directory, Blueprint, flash
 import numpy as np
 import cv2
 from datetime import datetime
@@ -23,14 +23,18 @@ def send_js(path):
 
 @web.route('/upload', methods=['POST'])
 def upload():
-    if request.files['image']:
-        stream = request.files['image'].stream
-        img_array = np.asarray(bytearray(stream.read()), dtype=np.uint8)
-        img = cv2.imdecode(img_array, 1)
-        img = canny(img)
-        dt_now = datetime.now().strftime("%Y_%m_%d%_H_%M_%S_") + random_str(5)
-        save_path = os.path.join(SAVE_DIR, dt_now + ".png")
-        cv2.imwrite(save_path, img)
-        print("save", save_path)
-
-        return redirect('/')
+    try:
+        if request.files['image']:
+            stream = request.files['image'].stream
+            img_array = np.asarray(bytearray(stream.read()), dtype=np.uint8)
+            img = cv2.imdecode(img_array, 1)
+            img = canny(img)
+            dt_now = datetime.now().strftime("%Y_%m_%d%_H_%M_%S_") + random_str(5)
+            save_path = os.path.join(SAVE_DIR, dt_now + ".png")
+            cv2.imwrite(save_path, img)
+            print("save", save_path)
+    except IndexError as err:
+        print('Bad Request:', err)
+    except Exception as other:
+        print('Something else Bloke:', other)
+    return redirect(url_for('root.index'))
