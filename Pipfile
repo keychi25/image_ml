@@ -22,7 +22,7 @@ scikit-learn = "*"
 jupyter = "*"
 Keras = "*"
 tflearn = "*"
-tensorflow = "==1.14"
+tensorflow = "==1.15.2"
 h5py = "*"
 PyYAML = "*"
 
